@@ -1,7 +1,9 @@
 <h2>lista veiculo</h2>
 <ul>
 {% for veiculo in veiculos %}
-      <li>{{veiculo}}</li>
+      <li>
+           <a href="{% url 'core_veiculo_update' veiculo.id %}"> {{veiculo}}</a>
+      </li>
 {% endfor %}
 </ul>
   <form action="{% url 'core_veiculo_novo'%}" method="POST">

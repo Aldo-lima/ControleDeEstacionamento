@@ -1,0 +1,7 @@
+<h2>Update Mensalista:{{mensalista}}</h2>
+
+<form action="" method="POST">
+     {% csrf_token %}
+     {{form.as_p}}
+     <button type="submit">Cadastra</button>
+</form>

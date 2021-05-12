@@ -1,7 +1,9 @@
 <h2>lista Mensalista</h2>
 <ul>
 {% for mensalista in mensalistas %}
-      <li>{{mensalista}}</li>
+     <li>
+         <a href="{% url 'core_mensalista_update' mensalista.id %}"> {{mensalista}}</a>
+     </li>
 {% endfor %}
 </ul>
 

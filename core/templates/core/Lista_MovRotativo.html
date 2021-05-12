@@ -1,10 +1,11 @@
 <h2>lista Movimento Rotativo</h2>
 <ul>
 {% for movRotativo in movRotativos %}
-      <li>{{movRotativo}}</li>
+       <li>
+       <a href="{% url 'core_movRotativo_update' movRotativo.id %}"> {{movRotativo}}</a>
+       </li>
 {% endfor %}
 </ul>
-
   <form action="{% url 'core_movRotativo_novo'%}" method="POST">
             {% csrf_token %}
             {{form.as_p}}

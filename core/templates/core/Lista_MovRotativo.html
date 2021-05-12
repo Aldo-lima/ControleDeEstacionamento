@@ -1,6 +1,12 @@
-<h2>lista Movimento mensalista</h2>
+<h2>lista Movimento Rotativo</h2>
 <ul>
 {% for movRotativo in movRotativos %}
       <li>{{movRotativo}}</li>
 {% endfor %}
 </ul>
+
+  <form action="{% url 'core_movRotativo_novo'%}" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Cadastrar</button>
+  </form>

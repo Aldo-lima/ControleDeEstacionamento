@@ -4,3 +4,9 @@
       <li>{{movMensalista}}</li>
 {% endfor %}
 </ul>
+
+  <form action="{% url 'core_movMensalista_novo'%}" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Cadastrar</button>
+  </form>

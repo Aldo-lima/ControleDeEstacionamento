@@ -1,7 +1,7 @@
 <h2>Update veiculo:{{veiculo}}</h2>
-
 <form action="" method="POST">
      {% csrf_token %}
      {{form.as_p}}
      <button type="submit">Cadastra</button>
 </form>
+     <a href="{% url 'core_veiculo_delete' veiculo.id %}">Deletar</a>

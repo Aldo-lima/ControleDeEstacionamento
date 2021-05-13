@@ -1,5 +1,6 @@
+{% extends 'core/base.html'%}
+{% block main %}
 <h2>Update Mensalista:{{mensalista}}</h2>
-
 <form action="" method="POST">
      {% csrf_token %}
      {{form.as_p}}
@@ -7,3 +8,4 @@
 </form>
 
  <a href="{% url 'core_mensalista_delete' mensalista.id %}">Deletar</a>
+{% endblock %}

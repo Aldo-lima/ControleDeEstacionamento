@@ -1,3 +1,5 @@
+{% extends 'core/base.html'%}
+{% block main %}
 <h2>Update movimento Rotativo :{{movRotativo}}</h2>
 
 <form action="" method="POST">
@@ -7,3 +9,5 @@
 </form>
 
       <a href="{% url 'core_movRotativo_delete' movRotativo.id %}">Deletar</a>
+
+{% endblock %}

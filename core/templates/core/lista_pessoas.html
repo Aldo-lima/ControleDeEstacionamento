@@ -1,3 +1,5 @@
+{% extends 'core/base.html'%}
+{% block main %}
 <h2>lista pessoas</h2>
 <ul>
 {% for pessoa in pessoas %}
@@ -11,3 +13,4 @@
             {{form.as_p}}
             <button type="submit">Cadastrar</button>
   </form>
+{% endblock %}

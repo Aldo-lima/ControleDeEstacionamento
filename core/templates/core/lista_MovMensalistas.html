@@ -1,6 +1,13 @@
 {% extends 'core/base.html'%}
 {% block main %}
-<h2>lista Movimento mensalista</h2>
+{% load bootstrap %}
+<div class="row">
+    <div class="col-sm-6">
+        <h2>lista Movimento mensalista</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
 <ul>
 {% for movMensalista in movMensalistas%}
     <li>
@@ -8,10 +15,13 @@
     </li>
 {% endfor %}
 </ul>
-  <form action="{% url 'core_movMensalista_novo'%}" method="POST">
+    </div>
+    <div class="col-sm-6">
+       <form action="{% url 'core_movMensalista_novo'%}" method="POST">
             {% csrf_token %}
-            {{form.as_p}}
+            {{form|bootstrap}}
             <button type="submit">Cadastrar</button>
-  </form>
-
+       </form>
+     </div>
+</div>
 {% endblock %}

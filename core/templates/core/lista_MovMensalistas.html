@@ -1,22 +1,36 @@
 {% extends 'core/base.html'%}
 {% block main %}
 {% load bootstrap %}
+<br>
 <div class="row">
     <div class="col-sm-6">
-        <h2>lista Movimento mensalista</h2>
-    </div>
-</div>
-<div class="row">
+<h2>Movimento Mensalista</h2>
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">codigo</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Telefone</th>
+       <th scope="col">Editar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+ {% for movMensalista in movMensalistas%}
+    <tr>
+      <th scope="row">{{movMensalista.id}}</th>
+      <td>{{movMensalista.mensalista}}</td>
+      <td>{{movMensalista.data_pagamento}}</td>
+      <td>{{movMensalista.total}}</td>
+       <td><a href="{% url 'core_movMensalista_update' movMensalista.id %}">Editar</a></td>
+    </tr>
+    {% endfor%}
+  </tbody>
+</table>
+        </div>
     <div class="col-sm-6">
-<ul>
-{% for movMensalista in movMensalistas%}
-    <li>
-       <a href="{% url 'core_movMensalista_update' movMensalista.id %}"> {{movMensalista}}</a>
-    </li>
-{% endfor %}
-</ul>
-    </div>
-    <div class="col-sm-6">
+        <h2>Novo Movimento</h2>
        <form action="{% url 'core_movMensalista_novo'%}" method="POST">
             {% csrf_token %}
             {{form|bootstrap}}

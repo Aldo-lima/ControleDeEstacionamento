@@ -2,24 +2,40 @@
 {% extends 'core/base.html'%}
 {% block main %}
 {% load bootstrap %}
-<div class="row">
-      <div class="col-12">
-        <h2>lista Movimento Rotativo</h2>
-      </div>
-</div>
 
+<br>
 <div class="row">
     <div class="col-sm-6">
-<ul>
+        <h2>Lista pessoas</h2>
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">codigo</th>
+      <th scope="col">Entrado</th>
+      <th scope="col">Saida</th>
+      <th scope="col">veiculo</th>
+       <th scope="col">Editar</th>
+    </tr>
+  </thead>
+
+  <tbody>
 {% for movRotativo in movRotativos %}
-       <li>
-       <a href="{% url 'core_movRotativo_update' movRotativo.id %}"> {{movRotativo}}</a>
-       </li>
-{% endfor %}
-</ul>
-    </div>
+    <tr>
+      <th scope="row">{{movRotativo.id}}</th>
+      <td>{{movRotativo.checkin}}</td>
+      <td>{{movRotativo.checkout}}</td>
+      <td>{{movRotativo.veiculo}}</td>
+       <td><a href="{% url 'core_movRotativo_update' movRotativo.id %}">Editar</a></td>
+    </tr>
+    {% endfor%}
+  </tbody>
+</table>
+
+        </div>
+
     <div class="col-sm-6">
-  <form action="{% url 'core_movRotativo_novo'%}" method="POST">
+        <h2>Novo Movimento</h2>
+             <form action="{% url 'core_movRotativo_novo'%}" method="POST">
             {% csrf_token %}
             {{form|bootstrap}}
             <button type="submit">Cadastrar</button>

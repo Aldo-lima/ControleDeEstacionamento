@@ -1,28 +1,41 @@
 {%extends 'core/base.html'%}
 {%block main%}
 {% load bootstrap %}
+<br>
 <div class="row">
     <div class="col-sm-6">
-        <h2>lista veiculo</h2>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-6">
-      <ul>
-        {% for veiculo in veiculos %}
-           <li>
-              <a href="{% url 'core_veiculo_update' veiculo.id %}"> {{veiculo}}</a>
-           </li>
-         {% endfor %}
-      </ul>
-    </div>
-   <div class="col-sm-6">
-      <form action="{% url 'core_veiculo_novo'%}" method="POST">
-            {% csrf_token %}
-            {{form|bootstrap}}
-            <button type="submit">Cadastrar</button>
-      </form>
-   </div>
+        <h2>Lista veiculo</h2>
+          <table class="table">
+         <thead>
+          <tr>
+            <th scope="col">codigo</th>
+            <th scope="col">Marca</th>
+            <th scope="col">placa</th>
+            <th scope="col">Propietario</th>
+            <th scope="col">Editar</th>
+           </tr>
+        </thead>
+        <tbody>
+           {% for veiculo in veiculos %}
+         <tr>
+            <th scope="row">{{veiculo.id}}</th>
+            <td>{{veiculo.marca}}</td>
+            <td>{{veiculo.placa}}</td>
+            <td>{{veiculo.proprietario}}</td>
+            <td><a href="{% url 'pessoa_update' veiculo.id %}">Editar</a></td>
+          </tr>
+              {% endfor%}
+         </tbody>
+         </table>
+       </div>
+      <div class="col-sm-6">
+               <h2>Cadastro Veiculo</h2>
+                <form action="{% url 'core_veiculo_novo'%}" method="POST">
+                   {% csrf_token %}
+                   {{form|bootstrap}}
+                <button type="submit">Cadastrar</button>
+                </form>
+      </div>
 </div>
 {%endblock%}
 

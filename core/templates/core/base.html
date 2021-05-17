@@ -10,6 +10,25 @@
 
       <div class="container-fluid">
           {% block menu %}
+          <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'core_home' %}">Home</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Serviços</a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="{% url 'core_lista_pessoa'%}">Pessoas</a></li>
+      <li><a class="dropdown-item" href="{% url 'core_lista_veiculos' %}">Veiculos</a></li>
+      <li><a class="dropdown-item" href="{% url 'core_lista_mensalista'%}">Mensalistas</a></li>
+      <li><a class="dropdown-item" href="{% url 'lista_movMensalista'%}">MovMensalistas</a></li>
+      <li><a class="dropdown-item" href="{% url 'core_lista_movRotativo'%}">MovRotativo</a></li>
+    </ul>
+
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Logout</a>
+  </li>
+</ul>
           {% endblock%}
           {% block main %}
          <h1>Hello, world!</h1>

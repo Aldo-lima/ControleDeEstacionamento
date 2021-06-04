@@ -33,4 +33,6 @@ urlpatterns = [
     path('mensalista-novo', mensalista_novo, name='core_mensalista_novo'),
     path('update_mensalista/<id>', mensalista_update, name='core_mensalista_update'),
     path('mensalista_delete/<id>', mensalista_delete, name='core_mensalista_delete'),
+    #==============================Login logalt===============================
+
 ]

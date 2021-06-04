@@ -1,0 +1,27 @@
+{% extends 'website/base.html'%}
+{% load static%}
+{% block main %}
+ {
+      {% load static %}
+        <div class="row">
+          <div class=""col-6>
+            <h1>Estacionamento 24 horas</h1>
+               <span>Seu carro senpre seguro</span>
+          </div>
+          <div class="col-6">
+         <!--  <img src="{% static 'img/teste2.jpg' %}" alt="Estacionamento 24 horas"> -->
+          </div>
+
+        </div>
+      {% include 'website/menu.html'%}
+     <dir class="row">
+         <div class="col-6">
+
+         </div>
+         <div class="col-6">
+
+         </div>
+
+     </dir>
+  {% include 'website/footer.html' %}
+{% endblock %}

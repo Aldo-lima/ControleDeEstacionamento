@@ -1,26 +1,38 @@
+{% load static %}
+    <div class="row" id="menu1">
+          <div class="col-8">
+            <h1>Estacionamento 24 horas</h1>
+               <span>Seu carro sempre seguro</span>
+          </div>
+          <div class="col-4">
+
+          </div>
+
+        </div>
+
+
 <div class="row">
   <div class="col-12">
 <ul class="nav nav-pills nav-fill">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Home</a>
+    <a id="merda" class="nav-link active" aria-current="page" href="/">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Servic</a>
+    <a class="nav-link" href="{% url 'site_homeSite'%}">Home Estacionamento</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">link</a>
+     </li> <li class="nav-item">
+    <a class="nav-link" href="{% url 'website_contato' %}">Contatos</a>
   </li>
-   <li class="nav-item">
-    <a class="nav-link" href="#">Planos</a>
-  </li> <li class="nav-item">
-    <a class="nav-link" href="#">Contatos</a>
+     <li class="nav-item">
+    <a class="nav-link" href="{% url 'core_home'%}">Sistema</a>
   </li>
-   <li class="nav-item">
-    <a class="nav-link" href="#">fale com nosco</a>
+
+ </li>
+     <li class="nav-item">
+    <a class="nav-link" href="{% url 'core_home'%}">imagens</a>
   </li>
-   <li class="nav-item">
-    <a class="nav-link" href="#">Sistema</a>
-  </li>
+
+
 </ul>
   </div>
 </div>

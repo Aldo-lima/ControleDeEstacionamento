@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
 #from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Pessoa, Veiculo, MovMensalista, ModelRotativo, Mensalista
 from .form import (PessoaForm, VeiculoForm, MensalistaForm,
                    MovRotativoForm,  MovMensalistaForm)
-# Create your views here.
 
 def home(request):
     context = {'mensagem': 'olá mundo'}
@@ -14,8 +14,11 @@ def home(request):
 @login_required()
 def lista_pessoas(request):
     form = PessoaForm()
-    pessoas = Pessoa.objects.all()
-    data = {'pessoas': pessoas, 'form':form}
+    pessoas_list = Pessoa.objects.all()
+    paginator = Paginator(pessoas_list, 2)
+    page = request.GET.get('page')
+    pessoas = paginator.get_page(page)
+    data = {'pessoas': pessoas, 'form': form}
     return render(request, 'core/lista_pessoas.html', data)
 
 @login_required()
@@ -52,7 +55,10 @@ def pessoa_delete(request, id ):
 @login_required()
 def lista_veiculos(request):
     form = VeiculoForm()
-    veiculos = Veiculo.objects.all()
+    veiculos_list = Veiculo.objects.all()
+    paginator = Paginator(veiculos_list, 10)
+    page =request.GET.get('page')
+    veiculos = paginator.get_page(page)
     data = {'veiculos': veiculos, 'form': form}
     return render(request, 'core/lista_veiculo.html', data)
 @login_required()
@@ -87,8 +93,11 @@ def veiculo_delete(request, id ):
 
 @login_required
 def lista_movMensalista(request):
-    form = MovMensalistaForm()
-    movMensalistas = MovMensalista.objects.all()
+    form = MensalistaForm()
+    movMensalista_list = MovMensalista.objects.all()
+    paginator = Paginator(movMensalista_list, 10)
+    page = request.GET.get('page')
+    movMensalistas = paginator.get_page(page)
     data = {'movMensalistas': movMensalistas, 'form': form}
     return render(request, 'core/lista_MovMensalistas.html', data)
 @login_required
@@ -125,9 +134,12 @@ def movMensalista_delete(request, id ):
 #============================Movimento Rotativo=========================
 @login_required()
 def lista_movRotativo(request):
-    form =MovRotativoForm()
-    movRotativos = ModelRotativo.objects.all()
-    data = {'movRotativos':movRotativos, 'form': form}
+    form = MovRotativoForm()
+    MoviRotativo_list = ModelRotativo.objects.all()
+    paginator = Paginator(MoviRotativo_list, 10)
+    page = request.GET.get('page')
+    movRotativos = paginator.get_page(page)
+    data = {'movRotativos': movRotativos, 'form': form}
     return render(request, 'core/lista_MovRotativo.html', data)
 @login_required()
 def movRotativo_novo(request):
@@ -162,10 +174,13 @@ def movRotativo_delete(request, id ):
 #======================================Mensalista===================
 @login_required()
 def lista_mensalista(request):
-     form = MensalistaForm()
-     mensalistas = Mensalista.objects.all()
-     data = {'mensalistas': mensalistas, 'form': form}
-     return render(request, 'core/lista_mensalista.html', data)
+    form = MensalistaForm()
+    mensalista_list = Mensalista.objects.all()
+    paginator = Paginator(mensalista_list, 2)
+    page = request.GET.get('page')
+    mensalistas = paginator.get_page(page)
+    data = {'mensalistas': mensalistas, 'form': form}
+    return render(request, 'core/lista_mensalista.html', data)
 @login_required()
 def mensalista_novo(request):
     form = MensalistaForm(request.POST or None)
@@ -195,3 +210,4 @@ def mensalista_delete(request, id ):
         return redirect('core_lista_mensalista')
     else:
         return render(request, 'core/delete_confirme.html', {'obj': mensalista})
+#=======================================Reltorio em PDF====================

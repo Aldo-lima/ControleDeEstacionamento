@@ -1,0 +1,35 @@
+body{
+background-color : white;
+}
+#menu1 {
+background-color : #363636;
+color: white;
+padding-top: 20px;
+padding-right:20px;
+padding-left: 20px;
+height: 120px;
+}
+.nav-item a {
+color:#000000;
+}
+.li {
+background-color : #B0E0E6;
+color: white;
+}
+#foo {
+background-color : #363636;
+color: white;
+height: 210px;
+padding-top: 40px;
+padding-right:40px;
+padding-left: 60px;
+padding-width: 40px;
+}
+p {
+text-align: justify;
+text-indent: 50px;
+
+}
+h5 {
+color: #FFD700;
+}

@@ -1,0 +1,65 @@
+{% extends 'website/base.html'%}
+{% load static%}
+{% block main %}
+{% include 'website/menu.html'%}
+<br>
+<dir class="row">
+         <div class="col-6">
+             <p>{{ mensagem }}</p>
+           <form class="row g-3" method="POST" >
+               {% csrf_token %}
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="inputEmail4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Nome</label>
+    <input type="text" name="nome" class="form-control" id="inputPassword4">
+  </div>
+
+
+  <div class="col-md-6">
+    <label for="inputCity"  class="form-label">Sobrenome</label>
+    <input type="text" name="sobrenome" class="form-control" id="inputCit">
+  </div>
+
+    <div class="col-md-12">
+    <label for="inputCity"  class="form-label">Assunto</label>
+    <input type="text" name="titulo" class="form-control" id="inputCity">
+  </div>
+
+    <div class="form-grop">
+        <textarea name="mensagem" id="" cols="88" rows="15"></textarea>
+    </div>
+
+  <div class="col-12">
+ <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="receber" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        deseja receber informação por email
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </div>
+</form>
+         </div>
+         <div class="col-6">
+           <p> Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam
+               a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Per aumento de cachacis,
+               eu reclamis. Interagi no mé, cursus quis, vehicula ac nisi. Diuretics paradis num
+               copo é motivis de denguis.
+
+                 Suco de cev    adiss deixa as pessoas mais interessantis. Quem num gosta di mé, boa gentis num é.
+               A ordem dos tratores não altera o pão duris. Delegadis gente finis, bibendum egestas augue arcu ut est.
+           </p>
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.5248902168255!2d
+             -47.17847738597326!3d-22.894002885018374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!
+             1s0x94c8b9ab3b8093c7%3A0x4fcd89a7cdda61a2!2sR.%20Ant%C3%B4nio%20Fernandes%20Leite%2C%20150%20
+             -%20Jardim%20Santa%20Izabel%2C%20Hortol%C3%A2ndia%20-%20SP%2C%2013185-230!5e0!3m2!1spt-BR!2sbr!
+             4v1622841707481!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+         </div>
+</dir>
+{% endblock %}

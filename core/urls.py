@@ -3,7 +3,7 @@ from .views import (home, lista_pessoas, lista_veiculos, lista_movMensalista,
                     lista_movRotativo, lista_mensalista, pessoa_nova, veiculo_novo,
                     mensalista_novo, movMensalista_novo, movRotativo_novo, pessoa_update,
                     veiculo_update, mensalista_update, movMensalista_update, movRotativo_update,
-                    pessoa_delete, veiculo_delete, mensalista_delete, movRotativo_delete)
+                    pessoa_delete, veiculo_delete, mensalista_delete, movRotativo_delete, )
 
 urlpatterns = [
 
@@ -33,6 +33,6 @@ urlpatterns = [
     path('mensalista-novo', mensalista_novo, name='core_mensalista_novo'),
     path('update_mensalista/<id>', mensalista_update, name='core_mensalista_update'),
     path('mensalista_delete/<id>', mensalista_delete, name='core_mensalista_delete'),
-    #==============================Login logalt===============================
+    #==============================Relatorio===============================
 
 ]

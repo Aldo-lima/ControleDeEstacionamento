@@ -1,16 +1,20 @@
 {%extends 'core/base.html'%}
 {%block main%}
 {% load bootstrap %}
+{% load crispy_forms_tags %}
+<div class="div1">
 <br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" id="lveiculo">
         <h2>Lista veiculo</h2>
+        <button type="button" class="btn btn-info">Relatorio PDF</button>
+
           <table class="table">
-         <thead>
+         <thead class="table-dark">
           <tr>
-            <th scope="col">codigo</th>
+            <th scope="col">Codigo</th>
             <th scope="col">Marca</th>
-            <th scope="col">placa</th>
+            <th scope="col">Placa</th>
             <th scope="col">Propietario</th>
             <th scope="col">Editar</th>
            </tr>
@@ -27,15 +31,52 @@
               {% endfor%}
          </tbody>
          </table>
+        <div class="pagination" >
+                  <span class="step-links">
+                      {% if veiculos.has_previous %}
+                        <a  href="?page={{ veiculos.previous_page_number }}" > <i class="fas fa-arrow-left" ></i></a>
+                      {% endif %}
+                      <span class="current">
+                          {{ veiculos.number }} de {{ veiculos.paginator.num_pages }}
+                      </span>
+
+                      {% if veiculos.has_next %}
+                        <a  href="?page={{ veiculos.next_page_number }}" > <i class="fas fa-arrow-right" ></i></a>
+                      {% endif %}
+                  </span>
+              </div>
        </div>
-      <div class="col-sm-6">
-               <h2>Cadastro Veiculo</h2>
-                <form action="{% url 'core_veiculo_novo'%}" method="POST">
-                   {% csrf_token %}
-                   {{form|bootstrap}}
-                <button type="submit">Cadastrar</button>
+
+      <div  class="col-sm-6" >
+          <h2>Cadastro Veiculo</h2>
+                <form  action="{% url 'core_veiculo_novo'%}" method="POST">
+                   <div class="formu" >
+                    {% csrf_token %}
+                       {{ form.proprietario|bootstrap}}
+                       <div class="row">
+                            <div class="col-6">
+                              {{ form.marca|bootstrap}}
+
+                            </div>
+                            <div class="col-6">
+                           {{ form.cor|bootstrap}}
+                           </div>
+                       </div>
+                       <div class="col-3">
+                          {{ form.placa|bootstrap}}
+                       </div>
+                             {{ form.observacoes|bootstrap}}
+
+                      <br>
+                   </div>
+                     <button class="b1"  type="submit">Cadastrar</button><br>
+
                 </form>
+
       </div>
 </div>
+</div>
 {%endblock%}
+
+
 

@@ -1,44 +1,59 @@
 {% extends 'core/base.html'%}
 {% block main %}
 {% load bootstrap %}
-<br>
-<div class="row">
-    <div class="col-sm-6">
-<h2>Lista pessoas</h2>
+<div class="div1">
+ <br>
+  <div class="row">
+    <div class="col-sm-6" id="lpessoas">
+      <h2>Lista pessoas</h2>
       <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">codigo</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Endereço</th>
-      <th scope="col">Telefone</th>
-       <th scope="col">Editar</th>
-    </tr>
-  </thead>
+          <thead class="table-dark">
+             <tr>
+               <th scope="col">Codigo</th>
+               <th scope="col">Nome</th>
+               <th scope="col">Endereço</th>
+               <th scope="col">Telefone</th>z
+               <th scope="col">Editar</th>
+             </tr>
+           </thead>
+           <tbody>
+             {% for pessoa in pessoas %}
+              <tr>
+                <th scope="row">{{pessoa.id}}</th>
+                <td>{{pessoa.nome}}</td>
+                <td>{{pessoa.endereco}}</td>
+                <td>{{pessoa.telefone}}</td>
+                <td><a href="{% url 'pessoa_update' pessoa.id %}">Editar</a></td>
+              </tr>
+             {% endfor%}
+          </tbody>
+       </table>
+         <div class="pagination" >
+                  <span class="step-links">
+                      {% if pessoas.has_previous %}
+                        <a  href="?page={{ pessoas.previous_page_number }}" > <i class="fas fa-arrow-left" ></i></a>
+                      {% endif %}
+                      <span class="current">
+                          {{ pessoas.number }} de {{ pessoas.paginator.num_pages }}
+                      </span>
 
-  <tbody>
-    {% for pessoa in pessoas %}
-    <tr>
-      <th scope="row">{{pessoa.id}}</th>
-      <td>{{pessoa.nome}}</td>
-      <td>{{pessoa.endereco}}</td>
-      <td>{{pessoa.telefone}}</td>
-       <td><a href="{% url 'pessoa_update' pessoa.id %}">Editar</a></td>
-    </tr>
-    {% endfor%}
-  </tbody>
-</table>
-
-        </div>
-      <br>
+                      {% if pessoas.has_next %}
+                        <a  href="?page={{ pessoas.next_page_number }}" > <i class="fas fa-arrow-right" ></i></a>
+                      {% endif %}
+                  </span>
+              </div>
+       </div>
            <div  class="col-sm-6">
                 <h2>Cadastrar pessoa</h2>
-      <form action="{% url 'core_pesoa_nova'%}" method="POST">
-            {% csrf_token %}
-            {{form|bootstrap}}
-            <button type="submit"  class="btn btn-success">Cadastrar</button>
-         </form>
+                <form action="{% url 'core_pesoa_nova'%}" method="POST">
+                   <div class="formu">
+                   {% csrf_token %}
+                   {{form|bootstrap}}
+                   </div>
+                <button type="submit"  class="btn btn-success">Cadastrar</button>
+                </form>
 
-         </div>
+           </div>
+  </div>
 </div>
 {% endblock %}

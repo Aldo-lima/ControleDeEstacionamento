@@ -2,13 +2,13 @@
 {% extends 'core/base.html'%}
 {% block main %}
 {% load bootstrap %}
-
+<div class="div1">
 <br>
 <div class="row">
-    <div class="col-sm-6">
-        <h2>Lista pessoas</h2>
+    <div class="col-sm-6" id="lmovrotativo">
+        <h2>Movimento Rotativo</h2>
       <table class="table">
-  <thead>
+  <thead class="table-dark">
     <tr>
       <th scope="col">codigo</th>
       <th scope="col">Entrado</th>
@@ -30,16 +30,32 @@
     {% endfor%}
   </tbody>
 </table>
+ <div class="pagination" >
+                  <span class="step-links">
+                      {% if movRotativos.has_previous %}
+                        <a  href="?page={{ movRotativos.previous_page_number }}" > <i class="fas fa-arrow-left" ></i></a>
+                      {% endif %}
+                      <span class="current">
+                          {{ movRotativos.number }} de {{ movRotativos.paginator.num_pages }}
+                      </span>
 
+                      {% if movRotativos.has_next %}
+                        <a  href="?page={{ movRotativos.next_page_number }}" > <i class="fas fa-arrow-right" ></i></a>
+                      {% endif %}
+                  </span>
+              </div>
         </div>
 
     <div class="col-sm-6">
         <h2>Novo Movimento</h2>
              <form action="{% url 'core_movRotativo_novo'%}" method="POST">
-            {% csrf_token %}
-            {{form|bootstrap}}
-            <button type="submit">Cadastrar</button>
-  </form>
+             <div class="formu" >
+                 {% csrf_token %}
+                 {{form|bootstrap}}
+             </div>
+            <button class="b1" type="submit">Cadastrar</button>
+            </form>
     </div>
+</div>
 </div>
 {% endblock %}

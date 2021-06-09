@@ -1,14 +1,15 @@
 {% extends 'core/base.html'%}
 {% block main %}
 {% load bootstrap %}
-<br>
+
+<div class="div1">
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" id="lmovmensalista">
 <h2>Movimento Mensalista</h2>
       <table class="table">
-  <thead>
+  <thead class="table-dark">
     <tr>
-      <th scope="col">codigo</th>
+      <th scope="col">Codigo</th>
       <th scope="col">Nome</th>
       <th scope="col">Endereço</th>
       <th scope="col">Telefone</th>
@@ -28,14 +29,31 @@
     {% endfor%}
   </tbody>
 </table>
+                 <div class="pagination" >
+                  <span class="step-links">
+                      {% if movMensalistas.has_previous %}
+                        <a  href="?page={{ movMensalistas.previous_page_number }}" > <i class="fas fa-arrow-left" ></i></a>
+                      {% endif %}
+                      <span class="current">
+                          {{ movMensalistas.number }} de {{ movMensalistas.paginator.num_pages }}
+                      </span>
+
+                      {% if movMensalistas.has_next %}
+                        <a  href="?page={{ movMensalistas.next_page_number }}" > <i class="fas fa-arrow-right" ></i></a>
+                      {% endif %}
+                  </span>
+              </div>
         </div>
     <div class="col-sm-6">
         <h2>Novo Movimento</h2>
        <form action="{% url 'core_movMensalista_novo'%}" method="POST">
+         <div class="formu" >
             {% csrf_token %}
             {{form|bootstrap}}
-            <button type="submit">Cadastrar</button>
+         </div>
+            <button class="b1" type="submit">Cadastrar</button>
        </form>
      </div>
+</div>
 </div>
 {% endblock %}

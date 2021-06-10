@@ -4,7 +4,10 @@ import math
 
 class Pessoa(models.Model):
     nome = models.CharField(max_length=100)
-    endereco = models.CharField(max_length=200)
+    endereco_rua = models.CharField('Rua', max_length=200)
+    endereco_numero = models.IntegerField('Numéro')
+    cidade = models.CharField('Cidade', max_length=200)
+    bairro = models.CharField('Bairro', max_length=200)
     telefone = models.CharField(max_length=20)
 
 

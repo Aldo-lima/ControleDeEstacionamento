@@ -1,20 +1,23 @@
 {% extends 'core/base.html'%}
 {% block main %}
 {% load bootstrap %}
-<div class="row">
-    <div class="col">
-        <h2>Update veiculo:{{monMensalista}}</h2>
+<div class="div2">
+    <div class="row">
+          <div class="col-4">
+          </div>
+          <div class="col-6">
+              <br>
+              <h2>Update Movimento Mensalista:{{monMensalista}}</h2>
+              <div class="formu">
+              <form action="" method="POST">
+                 {% csrf_token %}
+                 {{form|bootstrap}}
+                  <button type="submit" class="btn btn-success">Cadastra</button>
+                   <a href="{% url 'lista_movMensalista' %}" class="btn btn-success">Voltar</a>
+                  <a href="{% url 'core_movMensalista_delete' movMensalista.id %}" class="btn btn-danger">Deletar</a>
+               </form>
+              </div>
+           </div>
     </div>
 </div>
-<div class="row">
-    <div class="col">
-       <form action="" method="POST">
-        {% csrf_token %}
-        {{form|bootstrap}}
-        <button type="submit" class="btn btn-success">Cadastra</button>
-           <a href="{% url 'core_movMensalista_delete' movMensalista.id %}" class="btn btn-danger">Deletar</a>
-       </form>
-    </div>
-</div>
-
 {% endblock %}

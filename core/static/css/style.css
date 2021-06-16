@@ -4,6 +4,9 @@ background-color : #A9A9A9;
 .div1 {
 background-color :#EAEAAE ;
 }
+.div2{
+background-color :#EAEAAE ;
+}
 li {
 background-color : #F0E68C;
 }
@@ -12,7 +15,7 @@ table {
 background-color : #BDB76B;
 
 }
-#formu {
+.formu {
 background-color : #BDB76B;
 padding-right:20px;
 padding-left: 20px;
@@ -30,7 +33,7 @@ padding-right:10px;
 padding-left:30px;
 }
 
-#b1 {
+.b1 {
 margin-left:620px;
 }
 .pagination {
@@ -52,4 +55,53 @@ padding-right:20px;
 padding-left: 20px;
 margin-right: 20px;
 margin-bottom: 10px;
+}
+#lmensalista {
+padding-right:10px;
+padding-left:30px;
+}
+
+#lmovmensalista {
+padding-right:10px;
+padding-left:30px;
+
+}
+#lmovrotativo {
+padding-right:10px;
+padding-left:30px;
+}
+#fila {
+background-color : #BDB76B;
+}
+
+
+#teste1 {
+background-color : #BDB76B;
+}
+
+h1#h301{
+color: #006400;
+text-align: center;
+margin-top: 40px;
+margin-bottom: 40px;
+}
+
+p#texto1 {
+text-align: center;
+margin-top: 40px;
+margin-bottom: 40px;
+}
+#imgdagrama {
+ position: relative;
+   margin-left: 350px;
+   margin-right: 40px;
+margin-top: 40px;
+margin-bottom: 40px;
+
+}
+
+#dad {
+
+
+
 }

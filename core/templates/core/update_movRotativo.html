@@ -1,19 +1,22 @@
 {% extends 'core/base.html'%}
 {% block main %}
 {% load bootstrap %}
-<div class="row">
-    <div class="col">
-         <h2>Update movimento Rotativo :{{movRotativo}}</h2>
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        <form action="" method="POST">
-            {% csrf_token %}
-           {{form|bootstrap}}
-          <button type="submit">Cadastra</button>
-             <a href="{% url 'core_movRotativo_delete' movRotativo.id %}">Deletar</a>
-       </form>
-    </div>
+<div class="div2">
+     <div class="row">
+            <div class="col-4">
+            </div>
+            <div class="col-6">
+            <h2>Update movimento Rotativo :{{movRotativo}}</h2>
+                <div class="formu">
+                  <form action="" method="POST">
+                     {% csrf_token %}
+                     {{form|bootstrap}}
+                     <button type="submit" class="btn btn-success" >Feichar movimento</button>
+                      <a href="{% url 'core_lista_movRotativo' %}" class="btn btn-success">Voltar</a>
+                     <a href="{% url 'core_movRotativo_delete' movRotativo.id %}"  class="btn btn-danger">Cancelar movimento</a>
+                  </form>
+                </div>
+             </div>
+     </div>
 </div>
 {% endblock %}

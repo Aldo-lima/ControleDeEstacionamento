@@ -23,7 +23,7 @@
       <td>{{mensalista.veiculo}}</td>
       <td>{{mensalista.inicio}}</td>
 
-       <td><a href="{% url 'pessoa_update' mensalista.id %}">Editar</a></td>
+       <td><a href="{% url 'core_mensalista_update' mensalista.id %}"><i class="fas fa-edit"></a></td>
     </tr>
     {% endfor%}
   </tbody>

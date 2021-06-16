@@ -1,12 +1,25 @@
 {% extends 'core/base.html'%}
+{% load static%}
 {% block main %}
 
   <div class="div1">
       <div class="row">
+          <h1 id="h301">Seja bem vindo ao sistema</h1>
+              <h4>{{mensagem}}</h4>
           <div class="col">
-             <h1>seja bem vindo ao sistema</h1>
-             <a href="/admin">Clicki aqui para entrar </a>
+             <p id="texto1">Segunda pate do  projeto Sistema em python com framework django,
+                 que gerencia a parte operacional de um estacionamento: Cadastro de<br>
+                 clientes, cadastro de veiculos, cadastro de mensalista e a movimentação.</p>
+
          </div>
      </div>
+      <div class="row">
+          <div id="imgdagrama" class="col">
+              <h3>Classes Utilizadas</h3>
+
+              </p>
+      <img src="{% static 'imagem/diagrama.jpg' %}" alt="Estacionamento 24 horas">
+          </div>
+      </div>
   </div>
 {%endblock%}

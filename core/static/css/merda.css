@@ -4,6 +4,10 @@ background-color : #A9A9A9;
 .div1 {
 background-color :#EAEAAE ;
 }
+.div2{
+background-color :#EAEAAE ;
+height: 630px;
+}
 li {
 background-color : #F0E68C;
 }
@@ -68,5 +72,39 @@ padding-right:10px;
 padding-left:30px;
 }
 #fila {
+background-color : #BDB76B;
+}
+
+
+#teste1 {
+background-color : #BDB76B;
+}
+
+h1#h301{
+color: #006400;
+text-align: center;
+margin-top: 40px;
+margin-bottom: 40px;
+}
+
+p#texto1 {
+text-align: center;
+margin-top: 40px;
+margin-bottom: 40px;
+}
+#imgdagrama {
+ position: relative;
+   margin-left: 350px;
+   margin-right: 40px;
+margin-top: 40px;
+margin-bottom: 40px;
+
+}
+
+.cad{
+text-align: center;
+}
+
+#login {
 background-color : #BDB76B;
 }

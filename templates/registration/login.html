@@ -1,51 +1,47 @@
-{% extends 'base.html'%}
-
+{% extends 'core/base.html'%}
+{% load bootstrap %}
 {% block main %}
+<div class="div2">
+<br>
 <div   class="row">
+    <h4 class="cad">Logar</h4>
+      <div  class="col-4">
+      </div>
+     <div id="fila" class="col-4">
+       {% if form.errors %}
+      <p>Your username and password didn't match. Please try again.</p>
+      {% endif %}
 
-    <div  class="col-4">
-
-
-    </div>
-<div id="fila" class="col-4">
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
+     {% if next %}
     {% if user.is_authenticated %}
     <p>Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
     {% else %}
     <p>Please login to see this page.</p>
     {% endif %}
-{% endif %}
+    {% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
+      <br>
 
-<table><br>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
+    <div id="login">
+      <form method="post">
+           {% csrf_token%}
+           {{form|bootstrap}}
+           <br>
+           <button type="submit" class="btn btn-primary"> logar</button>
+      </form>
+    </div>
+    <br>
+     {# Assumes you setup the password_reset view in your URLconf #}
+    <p><a href="{% url 'password_reset' %}">Lost password?</a></p><br>
+        <p><a href="{% url 'core_register'%}">ainda não é cadastrado</a></p>
+    </div>
 
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-<br>
-<input type="submit" value="login"><br>
-<input type="hidden" name="next" value="{{ next }}">
-</form>
-<br>
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-</div>
     <div class="col-4">
+
 
     </div>
 
 </div>
+
 {% endblock %}

@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 #from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Pessoa, Veiculo, MovMensalista, ModelRotativo, Mensalista
-from .form import (PessoaForm, VeiculoForm, MensalistaForm,
+from .form import (PessoaForm, VeiculoForm, MensalistaForm, RegistrationForm,
                    MovRotativoForm,  MovMensalistaForm)
 
 def home(request):
@@ -210,4 +210,23 @@ def mensalista_delete(request, id ):
         return redirect('core_lista_mensalista')
     else:
         return render(request, 'core/delete_confirme.html', {'obj': mensalista})
-#=======================================Reltorio em PDF====================
+#=======================================Registro de usuario====================
+
+
+def register(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            mensagem = "Usuario criado com sucesso!"
+            context = {'mensagem': mensagem}
+            return render(request, 'core/index.html', context)
+        else:
+            mensagem = "Dados invalidos!"
+            form = RegistrationForm()
+            context = {'form': form, 'mensagem': mensagem}
+            return render(request, 'core/register.html', context)
+    else:
+        form = RegistrationForm()
+        context = {'form': form}
+    return render(request, 'core/register.html', context)
